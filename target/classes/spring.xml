@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    1、哪些类需要我来关联
+    2、怎么告诉我这些类(写bean)
+    3、怎么维护依赖关系（setter、constructor）
+    4、怎么体现setter或者constructor
+ -->
+<beans default="byType">
+    <bean id="dao" class="com.hydra.dao.UserDaoImpl"></bean>
+    <bean id="dao1" class="com.hydra.dao.UserDaoImpl1"></bean>
+
+    <bean id="service" class="com.hydra.service.UserServiceImpl">
+        <property name="dao" ref="dao1"></property>
+        <!--        <constructor-arg name="dao" ref="dao"></constructor-arg>-->
+    </bean>
+
+    <!--    <bean id="test" class="com.hydra.dao.TestDaoImpl"></bean>-->
+    <!--<bean id="dao1" class="com.hydra.dao.UserDaoImpl1"></bean>-->
+
+</beans>
